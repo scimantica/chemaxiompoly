@@ -1,0 +1,2187 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.polymerinformatics.com/ChemAxiom/ChemAxiomPoly.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:ChemistryOntology="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.polymerinformatics.com/ChemAxiom/ChemAxiomPoly.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment>Version 1.0</rdfs:comment>
+    <dc:rights>Copyright (C) 2009  Dr Nico Adams.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;. PLEASE NOTE THAT OTHER LICENCE FORMS ARE AVAILABLE FOR COMMERCIAL USE OF THESE ONTOLOGIES. If you are interested in getting involved in the development of this ontology, wish to provide feedback or if you would like to explore alternative licencing, please email chemaxiom@googlemail.com.</dc:rights>
+    <owl:imports rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="DoubleStrandComponent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StructuralComponent"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BranchPoint"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Block"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IonisableGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CyclicStructure"/>
+    </owl:disjointWith>
+    <rdfs:comment>A double strand component defines the structural motive of the constitutional repeating unit and makes the molecule to be a double-stranded molecule. Possible motives are a tetravalent acyclic group, a tetravalent ring-systen containing group or a combination of a cyclic group with one or two bivalent acyclic groups.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Branch"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Double strand component</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConstitutionalUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Chain"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SiteOfIsomerism"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Intermediate">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RelativeMolecularMass"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="High"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Small"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Intermediate</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#StructuralComponent">
+    <rdfs:label xml:lang="en">Structural component</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#FiatObjectPart"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConstitutionalUnit">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SiteOfIsomerism"/>
+    </owl:disjointWith>
+    <rdfs:comment>A constitutional unit is a larger unit in a molecule that is chemically sensible. For a polymer, for example, the constitutional reapeating unit is one possible sensible constitutional unit.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Block"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chain"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Constitutional unit</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BranchPoint"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TetravalentAcyclicGroup">
+    <rdfs:subClassOf rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TetravalentRingSystemContainingGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CyclicGroupWithBivalentAcyclicGroup"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Tetravalent acyclic group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StarMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Macromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:comment>A macromolecule containing a single branch point from which linear chains (arms) emanate.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/S05935.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasNumberOfBranchPoints"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#BranchPoint"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#Chain"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Star macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Endgroup">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="ChainEnd"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isLocatedAt"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:label xml:lang="en">Endgroup</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ValuePartition">
+    <rdfs:label xml:lang="en">Value partition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Quality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Macroradical">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FreeRadical"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#FreeRadical"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#High"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="hasRelativeMolecularWeight"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Macroradical</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CyclicGroupWithBivalentAcyclicGroup">
+    <owl:disjointWith rdf:resource="#TetravalentAcyclicGroup"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TetravalentRingSystemContainingGroup"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#DoubleStrandComponent"/>
+    <rdfs:label xml:lang="en">Cyclic group with bivalent acyclic group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CoOligomer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Oligomer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Co oligomer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="NetworkPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="Network"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Network polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BlockPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="BlockMacromolecule"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Block polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CoordinationBonding">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IonicBonding"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CovalentBonding"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HydrogenBonding"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bonding"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Coordination bonding</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GraftPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="GraftMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Graft polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="TailGroup">
+    <rdfs:subClassOf rdf:resource="#Endgroup"/>
+    <rdfs:label xml:lang="en">Tail group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StarPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#StarMacromolecule"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Star polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Anionic">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Radical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cationic"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ChargeCarrier"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Neutral"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Anionic</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearCopolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Copolymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="LinearMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Linear copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BranchedChain">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Chain"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Branch"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LinearChain"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Branched chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StereoregularMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RegularMacromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:comment>A regular macromolecule essentially comprising only one species of stereorepeating unit.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/S05986.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RegularMacromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="ConfigurationalBaseUnit"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasConfigurationalBaseUnitType"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Stereoregular macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CovalentBonding">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IonicBonding"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HydrogenBonding"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bonding"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#CoordinationBonding"/>
+    <rdfs:label xml:lang="en">Covalent bonding</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BlockCopolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Copolymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#BlockMacromolecule"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Block copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PolydispersePolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasDispersity"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="Polydisperse"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>http://goldbook.iupac.org/N04206.html</rdfs:comment>
+    <rdfs:comment>A polymer comprising molecules non-uniform with respect to relative molecular mass or constitution or both.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Polydisperse polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SpiroMacromolecule">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LadderMacromolecule"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DoubleStrandMacromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:comment>http://goldbook.iupac.org/S05882.html</rdfs:comment>
+    <rdfs:comment>double-strand macromolecule consisting of an uninterrupted sequence of rings, with adjacent rings having only one atom in common. Alternatively, a spiro macromolecule is a double-strand macromolecule with adjacent constitutional units joined to each other through three atoms, two on one side and one on the other side of each constitutional unit.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DoubleStrandMacromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasAdjacentRingAtomCommunality"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Spiro macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#IonicBonding">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bonding"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#CoordinationBonding"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HydrogenBonding"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CovalentBonding"/>
+    <rdfs:label xml:lang="en">Ionic bonding</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FunctionalEndgroup">
+    <rdfs:subClassOf rdf:resource="#Endgroup"/>
+    <rdfs:label xml:lang="en">Functional endgroup</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CovalentNetwork">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Network"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#CovalentBonding"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasConstitutionalUnitBondingType"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Network"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Covalent network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PrePolymerMolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Macromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Pre polymer molecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PolyelectrolytePolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="IonomerMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>http://goldbook.iupac.org/P04728.html</rdfs:comment>
+    <rdfs:comment>A macromolecular substance which, on dissolving in water or another ionizing solvent, dissociates to give polyions (polycations or polyanions) — multiply charged ions — together with an equivalent amount of ions of small charge and opposite sign. Polyelectrolytes dissociating into polycations and polyanions, with no ions of small charge, are also conceivable. A polyelectrolyte can be a polyacid, a polybase, a polysalt or a polyampholyte.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Polymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Polyelectrolyte polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ReactiveGroup">
+    <rdfs:label xml:lang="en">Reactive group</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ConstitutionalUnit"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IdenticalWithRespectToDirectionalSense">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NonIdenticalWithRespectToDirectionalSense"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ConstitutionalUnitConnectionDirectionality"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Identical with respect to directional sense</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Chain">
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IonisableGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Block"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BranchPoint"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Chain</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SiteOfIsomerism"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#IonomerMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Macromolecule"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Macromolecule"/>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                  <owl:Class>
+                    <owl:unionOf rdf:parseType="Collection">
+                      <owl:Class rdf:ID="IonicConstitutionalUnit"/>
+                      <owl:Class rdf:ID="IonisableConstitutionalUnit"/>
+                    </owl:unionOf>
+                  </owl:Class>
+                </owl:someValuesFrom>
+              </owl:Restriction>
+            </owl:intersectionOf>
+          </owl:Class>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#IonicConstitutionalUnit"/>
+                  <owl:Class rdf:about="#IonisableConstitutionalUnit"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Ionomer macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RelativeMolecularMass">
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstitutionalUnitConnectionDirectionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BlockSequence"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#High"/>
+          <owl:Class rdf:about="#Intermediate"/>
+          <owl:Class rdf:about="#Small"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ChargeCarrier"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Relative molecular mass</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PhysicalNetwork">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Network"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasConstitutionalUnitBondingType"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#CoordinationBonding"/>
+                  <owl:Class rdf:about="#HydrogenBonding"/>
+                  <owl:Class rdf:about="#IonicBonding"/>
+                </owl:unionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Network"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Physical network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearSideChain">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SideChain"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BranchedSideChain"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Linear side chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BranchedMainChain">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Branch"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MainChain"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Branched main chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Polymer">
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#ChemicalSpecies"/>
+    <rdfs:label xml:lang="en">Polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TetravalentRingSystemContainingGroup">
+    <owl:disjointWith rdf:resource="#TetravalentAcyclicGroup"/>
+    <owl:disjointWith rdf:resource="#CyclicGroupWithBivalentAcyclicGroup"/>
+    <rdfs:subClassOf rdf:resource="#DoubleStrandComponent"/>
+    <rdfs:label xml:lang="en">Tetravalent ring system containing group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PseudoCoOligomer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Oligomer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Pseudo co oligomer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RandomCopolymer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Random copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="IrregularMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Macromolecule"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Macromolecule"/>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:DatatypeProperty rdf:ID="hasNumberofConstitutionalUnitTypes"/>
+                </owl:onProperty>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >2</owl:minCardinality>
+              </owl:Restriction>
+            </owl:intersectionOf>
+          </owl:Class>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#NonIdenticalWithRespectToDirectionalSense"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="hasConstitutionalUnitConnectionDirectionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>NA note: biological examples of irregular macromolecules are proteins or nucleic acids</rdfs:comment>
+    <rdfs:comment>A macromolecule the structure of which essentially comprises the repetition of more than one type of constitutional unit or a macromolecule the structure of which comprises constitutional units not all connected identically with respect to directional sense.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/I03256.html</rdfs:comment>
+    <rdfs:label xml:lang="en">Irregular macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RegularStarMacromolecule">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StarMacromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalUnit"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasRegularSequenceOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#StarMacromolecule"/>
+    <rdfs:label xml:lang="en">Regular star macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PolymerPolymerComplex">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Polymer polymer complex</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#High">
+    <rdfs:subClassOf rdf:resource="#RelativeMolecularMass"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Small"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Intermediate"/>
+    <rdfs:label xml:lang="en">High</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#MainChain">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Graft"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SideChain"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Main chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="IsotacticMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TacticMacromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Isotactic macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Radical">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Neutral"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Anionic"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cationic"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ChargeCarrier"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Radical</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#LinearChain">
+    <rdfs:subClassOf rdf:resource="#Chain"/>
+    <owl:disjointWith rdf:resource="#BranchedChain"/>
+    <rdfs:label xml:lang="en">Linear chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Macromolecule">
+    <rdfs:comment>http://goldbook.iupac.org/M03667.html</rdfs:comment>
+    <rdfs:comment>A molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Endgroup"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MainChain"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#MolecularEntity"/>
+    <rdfs:label xml:lang="en">Macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#IonisableConstitutionalUnit">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#IonisableGroup"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:label xml:lang="en">Ionisable constitutional unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#IonicConstitutionalUnit">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasChargeCarrier"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Anionic"/>
+              <owl:Class rdf:about="#Cationic"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:label xml:lang="en">Ionic constitutional unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CombPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="CombMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Comb polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="TacticPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#TacticMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Tactic polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FunctionalHeadGroup">
+    <rdfs:subClassOf rdf:resource="#FunctionalEndgroup"/>
+    <rdfs:label xml:lang="en">Functional head group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#SiteOfIsomerism">
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Block"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BranchPoint"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IonisableGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Branch"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <rdfs:label xml:lang="en">Site of isomerism</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MultiStrandMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>http://goldbook.iupac.org/M04067.html</rdfs:comment>
+    <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through more than four atoms, more than two on at least one side of each constitutional unit.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalUnit"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasAdjacentRingAtomCommunality"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >5</owl:minCardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Multi strand macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="AlternatingCopolymer">
+    <rdfs:comment>http://goldbook.iupac.org/A00250.html</rdfs:comment>
+    <rdfs:comment>A copolymer consisting of macromolecules comprising two species of monomeric units in alternating sequence.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Alternating copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Neutral">
+    <owl:disjointWith rdf:resource="#Radical"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cationic"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Anionic"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ChargeCarrier"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Neutral</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="InterpenetratingPolymerNetwork">
+    <rdfs:subClassOf rdf:resource="#NetworkPolymer"/>
+    <rdfs:label xml:lang="en">Interpenetrating polymer network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StatisticalCopolymer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Statistical copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FunctionalTailGroup">
+    <rdfs:subClassOf rdf:resource="#FunctionalEndgroup"/>
+    <rdfs:label xml:lang="en">Functional tail group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ChainEnd">
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConstitutionalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Block"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <rdfs:label xml:lang="en">Chain end</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PolymerBlend">
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#Mixture"/>
+    <rdfs:label xml:lang="en">Polymer blend</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="IrregularPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#IrregularMacromolecule"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Irregular polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#HydrogenBonding">
+    <owl:disjointWith rdf:resource="#IonicBonding"/>
+    <owl:disjointWith rdf:resource="#CoordinationBonding"/>
+    <owl:disjointWith rdf:resource="#CovalentBonding"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bonding"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Hydrogen bonding</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="OligomerMolecule">
+    <rdfs:comment>http://goldbook.iupac.org/O04286.html</rdfs:comment>
+    <rdfs:comment>A molecule of intermediate relative molecular mass, the structure of which essentially comprises a small plurality of units derived, actually or conceptually, from molecules of lower relative molecular mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#MolecularEntity"/>
+    <rdfs:label xml:lang="en">Oligomer molecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CombMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#BranchedChain"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment>A macromolecule comprising of a main chain with multiple trifunctional branch points from each of which a linear side chain emanates.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/C01186.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="TriFunctionalBranchPoint"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Comb macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Monodisperse">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Polydisperse"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Dispersity"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Monodisperse</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="IsotacticPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TacticPolymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#IsotacticMacromolecule"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#TacticPolymer"/>
+    <rdfs:label xml:lang="en">Isotactic polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleStrandCopolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Copolymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#DoubleStrandMacromolecule"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Double strand copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Block">
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BranchPoint"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IonisableGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Branch"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Block</rdfs:label>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ConstitutionalRepeatingUnit">
+    <rdfs:subClassOf rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:comment>The smallest constitutional unit the repetition of which constitutes a regular macromolecule, a regular oligomer molecule, a regular block or a regular chain.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/C01286.html</rdfs:comment>
+    <rdfs:label xml:lang="en">Constitutional repeating unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SiteOfStereoisomerism">
+    <rdfs:subClassOf rdf:resource="#SiteOfIsomerism"/>
+    <rdfs:label xml:lang="en">Site of stereoisomerism</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearBlockSequence">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BlockSequence"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NonLinearBlockSequence"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Linear block sequence</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="HomoPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasNumberOfMonomers"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Homo polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#GraftMacromolecule">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#Graft"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>A macromolecule with one or more species of block connected to the main chain as side chains, these side chains having constitutional or configurational features that differ from those in the main chain.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/G02678.html</rdfs:comment>
+    <rdfs:label xml:lang="en">Graft macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Stereoblock">
+    <rdfs:subClassOf rdf:resource="#Block"/>
+    <rdfs:label xml:lang="en">Stereoblock</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Bonding">
+    <rdfs:label xml:lang="en">Bonding</rdfs:label>
+    <owl:disjointWith rdf:resource="#StructuralComponent"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CoordinationBonding"/>
+          <owl:Class rdf:about="#HydrogenBonding"/>
+          <owl:Class rdf:about="#CovalentBonding"/>
+          <owl:Class rdf:about="#IonicBonding"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AtacticPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="AtacticMacromolecule"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Atactic polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BranchPoint">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StructuralComponent"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isLocatedAt"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Branch"/>
+                  <owl:Class rdf:about="#MainChain"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#Block"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IonisableGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Branch point</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Branch"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#IonisableGroup">
+    <rdfs:comment>an ionisable group is a chemical group which is formally neutral, but which can easily be ionised (e.g. through proton abstraction or protonation). The result of such a process is an ionic group.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <rdfs:label xml:lang="en">Ionisable group</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Block"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Branch"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <owl:disjointWith rdf:resource="#BranchPoint"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SemiinterpenetratingPolymerNetwork">
+    <rdfs:subClassOf rdf:resource="#NetworkPolymer"/>
+    <rdfs:label xml:lang="en">Semiinterpenetrating polymer network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TacticMacromolecule">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RegularMacromolecule"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Tactic macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#LadderMacromolecule">
+    <owl:disjointWith rdf:resource="#SpiroMacromolecule"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DoubleStrandMacromolecule"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DoubleStrandMacromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasAdjacentRingAtomCommunality"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</owl:minCardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>http://goldbook.iupac.org/L03441.html</rdfs:comment>
+    <rdfs:comment>A double-strand macromolecule consisting of an uninterrupted sequence of rings, with adjacent rings having two or more atoms in common. Alternatively, a ladder macromolecule is a double-strand macromolecule with constitutional units joined to each other through four atoms, two on one side and two on the other side of each constitutional unit.</rdfs:comment>
+    <rdfs:label xml:lang="en">Ladder macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Cationic">
+    <owl:disjointWith rdf:resource="#Radical"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ChargeCarrier"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Neutral"/>
+    <owl:disjointWith rdf:resource="#Anionic"/>
+    <rdfs:label xml:lang="en">Cationic</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleStrandMacromolecule">
+    <rdfs:comment>http://goldbook.iupac.org/S05693.html</rdfs:comment>
+    <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through two atoms, one on each constitutional unit.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:label xml:lang="en">Single strand macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BlockMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#Block"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#BlockSequence"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Block macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DiFuntionalBranchPoint">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TriFunctionalBranchPoint"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#BranchPoint"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasBranchPointFunctionality"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HyperFunctionalBranchPoint"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Di funtional branch point</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ChargeCarrier">
+    <owl:disjointWith rdf:resource="#RelativeMolecularMass"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstitutionalUnitConnectionDirectionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Anionic"/>
+          <owl:Class rdf:about="#Cationic"/>
+          <owl:Class rdf:about="#Neutral"/>
+          <owl:Class rdf:about="#Radical"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BlockSequence"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Charge carrier</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SyndiotacticMacromolecule">
+    <rdfs:subClassOf rdf:resource="#TacticMacromolecule"/>
+    <rdfs:label xml:lang="en">Syndiotactic macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Dispersity">
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Monodisperse"/>
+          <owl:Class rdf:about="#Polydisperse"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Dispersity</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StereoregularStarMacromolecule">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StarMacromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#ConfigurationalBaseUnit"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasConfigurationalBaseUnitType"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#StarMacromolecule"/>
+    <rdfs:label xml:lang="en">Stereoregular star macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RegularPolymer">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#RegularMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Regular polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GraftCopolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Copolymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#GraftMacromolecule"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Copolymer"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Graft copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RegularMacromolecule">
+    <rdfs:comment>A macromolecule the structure of which essentially comprises the repetition of a single constitutional unit with all units connected identically with respect to directional sense.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/R05247.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalUnit"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasRegularSequenceOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:label xml:lang="en">Regular macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#HyperFunctionalBranchPoint">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TriFunctionalBranchPoint"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#BranchPoint"/>
+    <owl:disjointWith rdf:resource="#DiFuntionalBranchPoint"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasBranchPointFunctionality"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4</owl:minCardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Hyper functional branch point</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BrushMacromolecule">
+    <owl:disjointWith rdf:resource="#CombMacromolecule"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#HyperFunctionalBranchPoint"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#BranchedChain"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment>Identical to the comb macromolecule. However, the branch point functionality is greater than three.</rdfs:comment>
+    <rdfs:label xml:lang="en">Brush macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#SideChain">
+    <rdfs:subClassOf rdf:resource="#Chain"/>
+    <owl:disjointWith rdf:resource="#MainChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isAttachedTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MainChain"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isAttachedTo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#MainChain"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Side chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Copolymer">
+    <owl:disjointWith rdf:resource="#HomoPolymer"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasNumberOfMonomers"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</owl:minCardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SyndiotacticPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TacticPolymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#SyndiotacticMacromolecule"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#TacticPolymer"/>
+    <rdfs:label xml:lang="en">Syndiotactic polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#LinearMacromolecule"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Linear polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="NamedPolymer">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Named polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#DoubleStrandMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#DoubleStrandComponent"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through three or four atoms, two on one side and either one or two on the other side of each constitutional unit.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/D01851.html</rdfs:comment>
+    <rdfs:comment>To put it in a different way: double stranded macromolecules consist of an uninterrupted sequence of rings with adjacent rings having one atom in common (a spiro macromolecule) or two or more atoms in common (a ladder macromolecule).</rdfs:comment>
+    <rdfs:label xml:lang="en">Double strand macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#NonIdenticalWithRespectToDirectionalSense">
+    <owl:disjointWith rdf:resource="#IdenticalWithRespectToDirectionalSense"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ConstitutionalUnitConnectionDirectionality"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Non identical with respect to directional sense</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="HeadGroup">
+    <rdfs:subClassOf rdf:resource="#Endgroup"/>
+    <rdfs:label xml:lang="en">Head group</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BranchedPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="BranchedMacromolecule"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Branched polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Branch">
+    <owl:disjointWith rdf:resource="#IonisableGroup"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#BranchPoint"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <owl:disjointWith rdf:resource="#Block"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationalRepeatingUnit"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Branch</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConstitutionalUnitConnectionDirectionality">
+    <owl:disjointWith rdf:resource="#RelativeMolecularMass"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IdenticalWithRespectToDirectionalSense"/>
+          <owl:Class rdf:about="#NonIdenticalWithRespectToDirectionalSense"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BlockSequence"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#ChargeCarrier"/>
+    <rdfs:label xml:lang="en">Constitutional unit connection directionality</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="StereoblockMacromolecule">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BlockMacromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#Stereoblock"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#BlockMacromolecule"/>
+    <rdfs:label xml:lang="en">Stereoblock macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BranchedSideChain">
+    <owl:disjointWith rdf:resource="#LinearSideChain"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Branch"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#SideChain"/>
+    <rdfs:label xml:lang="en">Branched side chain</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BlockSequence">
+    <owl:disjointWith rdf:resource="#RelativeMolecularMass"/>
+    <owl:disjointWith rdf:resource="#ConstitutionalUnitConnectionDirectionality"/>
+    <owl:disjointWith rdf:resource="#ChargeCarrier"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#LinearBlockSequence"/>
+          <owl:Class rdf:about="#NonLinearBlockSequence"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <rdfs:label xml:lang="en">Block sequence</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ConfigurationalRepeatingUnit">
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <rdfs:label xml:lang="en">Configurational repeating unit</rdfs:label>
+    <owl:disjointWith rdf:resource="#BranchPoint"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#IonisableGroup"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CyclicStructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConstitutionalUnit"/>
+    <owl:disjointWith rdf:resource="#Branch"/>
+    <owl:disjointWith rdf:resource="#Block"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Oligomer">
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#ChemicalSpecies"/>
+    <rdfs:label xml:lang="en">Oligomer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleStrandPolymer">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#DoubleStrandMacromolecule"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Double strand polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Macroinitiator">
+    <rdfs:label xml:lang="en">Macroinitiator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>An initiator is a molecule, which triggers (initiates) a chemical reaction. Usually, these carry either cationic or anionic charges or radicals. A macroinitiator is a macromolecular initiator.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SmallMolecule">
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#MolecularEntity"/>
+    <rdfs:label xml:lang="en">Small molecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Network">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>A highly ramified macromolecule in which essentially each constitutional unit is connected to each other constitutional unit  and to the macroscopic phase boundary by many permanent paths through the macromolecule, the number of such paths increasing with the average number of intervening bonds; the paths must on the average be co-extensive with the macromolecule.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/N04112.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalUnit"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasInfiniteSequenceOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TriFunctionalBranchPoint">
+    <owl:disjointWith rdf:resource="#DiFuntionalBranchPoint"/>
+    <owl:disjointWith rdf:resource="#HyperFunctionalBranchPoint"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasBranchPointFunctionality"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:cardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#BranchPoint"/>
+    <rdfs:label xml:lang="en">Tri functional branch point</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MonodispersePolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#Monodisperse"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasDispersity"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment>http://goldbook.iupac.org/U06558.html</rdfs:comment>
+    <rdfs:comment>A polymer composed of molecules uniform with respect to relative molecular mass and constitution.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Monodisperse polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MacromonomerPolymer">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Macromonomer polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CyclicStructure">
+    <owl:disjointWith rdf:resource="#Chain"/>
+    <owl:disjointWith rdf:resource="#DoubleStrandComponent"/>
+    <owl:disjointWith rdf:resource="#BranchPoint"/>
+    <rdfs:label xml:lang="en">Cyclic structure</rdfs:label>
+    <owl:disjointWith rdf:resource="#Block"/>
+    <owl:disjointWith rdf:resource="#Branch"/>
+    <owl:disjointWith rdf:resource="#SiteOfIsomerism"/>
+    <owl:disjointWith rdf:resource="#IonisableGroup"/>
+    <owl:disjointWith rdf:resource="#ConfigurationalRepeatingUnit"/>
+    <rdfs:subClassOf rdf:resource="#StructuralComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NonLinearBlockSequence">
+    <rdfs:subClassOf rdf:resource="#BlockSequence"/>
+    <owl:disjointWith rdf:resource="#LinearBlockSequence"/>
+    <rdfs:label xml:lang="en">Non linear block sequence</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Graft">
+    <owl:disjointWith rdf:resource="#MainChain"/>
+    <rdfs:comment>A graft is a polymer chain or a molecule which is covalently attached to the main chain of the polymer and which is chemically different from the main chain.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#BranchPoint"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isAttachedTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MainChain"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Chain"/>
+    <rdfs:label xml:lang="en">Graft</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="TelechelicMacromolecule">
+    <rdfs:comment>http://goldbook.iupac.org/P04818.html</rdfs:comment>
+    <rdfs:comment>A pre-polymer molecule capable of entering into further polymerization through reactive end-groups, often deliberately introduced, is known as a telechelic molecule.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#PrePolymerMolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#FunctionalEndgroup"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#PrePolymerMolecule"/>
+    <rdfs:label xml:lang="en">Telechelic macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#FreeRadical">
+    <rdfs:subClassOf rdf:resource="http://www.polymerinformatics.com/ChemAxiom/ChemDomain.owl#MolecularEntity"/>
+    <rdfs:label xml:lang="en">Free radical</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BranchedMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#BranchedChain"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Branched macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Small">
+    <rdfs:subClassOf rdf:resource="#RelativeMolecularMass"/>
+    <owl:disjointWith rdf:resource="#Intermediate"/>
+    <owl:disjointWith rdf:resource="#High"/>
+    <rdfs:label xml:lang="en">Small</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ConfigurationalBaseUnit">
+    <rdfs:comment>http://goldbook.iupac.org/C01250.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#SiteOfStereoisomerism"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:comment>A constitutional repeating unit in a regular macromolecule, a regular oligomer molecule, regular block or a regular chain, the configuration of which is defined at least at one site of stereoisomerism in the main chain.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ConstitutionalRepeatingUnit"/>
+    <rdfs:label xml:lang="en">Configurational base unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Polydisperse">
+    <owl:disjointWith rdf:resource="#Monodisperse"/>
+    <rdfs:subClassOf rdf:resource="#Dispersity"/>
+    <rdfs:label xml:lang="en">Polydisperse</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Macrocycle">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>http://goldbook.iupac.org/M03662.html</rdfs:comment>
+    <rdfs:comment>A cyclic macromolecule or a macromolecular cyclic portion of a macromolecule.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasCyclicSequenceOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalRepeatingUnit"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Macrocycle</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PeriodicCopolymer">
+    <rdfs:subClassOf rdf:resource="#Copolymer"/>
+    <rdfs:label xml:lang="en">Periodic copolymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#LinearMacromolecule">
+    <rdfs:subClassOf rdf:resource="#Macromolecule"/>
+    <rdfs:comment>http://goldbook.iupac.org/L03554.html</rdfs:comment>
+    <rdfs:comment>A macromolecule the structure of which essentially comprises the multiple repetition in linear sequence of units derived, actually or conceptually, from molecules of low relative molecular mass.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Macromolecule"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasLinearSequenceOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#ConstitutionalRepeatingUnit"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Linear macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MicroNetwork">
+    <rdfs:comment>A highly ramified macromolecule that contains cyclic structures and is of colloidal dimensions.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/M03904.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Network"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#CyclicStructure"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Network"/>
+    <rdfs:label xml:lang="en">Micro network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#AtacticMacromolecule">
+    <rdfs:subClassOf rdf:resource="#RegularMacromolecule"/>
+    <rdfs:comment>A regular macromolecule in which the configurational (base) units are not all identical.</rdfs:comment>
+    <rdfs:comment>http://goldbook.iupac.org/A00488.html</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RegularMacromolecule"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#ConfigurationalBaseUnit"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasStructuralComponent"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasConfigurationalBaseUnitType"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</owl:minCardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Atactic macromolecule</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleStrandPolymer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Polymer"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isComposedOf"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#SingleStrandMacromolecule"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Single strand polymer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LivingPolymer">
+    <rdfs:subClassOf rdf:resource="#Polymer"/>
+    <rdfs:label xml:lang="en">Living polymer</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="isPossibleSiteOf">
+    <rdfs:label xml:lang="en">is possible site of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasInfiniteSequenceOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasSequence"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label xml:lang="en">has infinite sequence of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasStructuralComponent">
+    <rdfs:label xml:lang="en">has structural component</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isLocatedAt">
+    <rdfs:label xml:lang="en">is located at</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasRegularSequenceOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasSequence"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label xml:lang="en">has regular sequence of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasLinearSequenceOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasSequence"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label xml:lang="en">has linear sequence of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIrregularSequenceOf">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasSequence"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label xml:lang="en">has irregular sequence of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSequence">
+    <rdfs:label xml:lang="en">has sequence</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDispersity">
+    <rdfs:range rdf:resource="#Dispersity"/>
+    <rdfs:label xml:lang="en">has dispersity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isComposedOf">
+    <rdfs:label xml:lang="en">is composed of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="participatesIn">
+    <rdfs:label xml:lang="en">participates in</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasCyclicSequenceOf">
+    <rdfs:subPropertyOf rdf:resource="#hasSequence"/>
+    <rdfs:label xml:lang="en">has cyclic sequence of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="initiates">
+    <rdfs:label xml:lang="en">initiates</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isAttachedTo">
+    <rdfs:range rdf:resource="#StructuralComponent"/>
+    <rdfs:label xml:lang="en">is attached to</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasConstitutionalUnitBondingType">
+    <rdfs:range rdf:resource="#Bonding"/>
+    <rdfs:comment>defines the type of bonding with which constitutional units are connected to each other</rdfs:comment>
+    <rdfs:comment>Nico Adams</rdfs:comment>
+    <rdfs:label xml:lang="en">has constitutional unit bonding type</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isDerivedFrom">
+    <rdfs:label xml:lang="en">is derived from</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#hasAdjacentRingAtomCommunality">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label xml:lang="en">has adjacent ring atom communality</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasConfigurationalBaseUnitType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label xml:lang="en">has configurational base unit type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasNumberofConstitutionalUnitTypes">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label xml:lang="en">has numberof constitutional unit types</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasNumberOfBranchPoints">
+    <rdfs:label xml:lang="en">has number of branch points</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasNumberOfMoleculeTypes">
+    <rdfs:comment>Nico Adams</rdfs:comment>
+    <rdfs:comment>specifies the number of different types of molecules a blend or a substance etc are composed of</rdfs:comment>
+    <rdfs:label xml:lang="en">has number of molecule types</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasNumberOfMonomers">
+    <rdfs:comment>specifies the number of monomers a polymer/macromolecule was made from</rdfs:comment>
+    <rdfs:label xml:lang="en">has number of monomers</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasBranchPointFunctionality">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label xml:lang="en">has branch point functionality</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="#hasChargeCarrier">
+    <rdfs:range rdf:resource="#ChargeCarrier"/>
+    <rdfs:label xml:lang="en">has charge carrier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasRelativeMolecularWeight">
+    <rdfs:range rdf:resource="#RelativeMolecularMass"/>
+    <rdfs:label xml:lang="en">has relative molecular weight</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBlockSequence">
+    <rdfs:range rdf:resource="#BlockSequence"/>
+    <rdfs:label xml:lang="en">has block sequence</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasConstitutionalUnitConnectionDirectionality">
+    <rdfs:label xml:lang="en">has constitutional unit connection directionality</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid Composer -->

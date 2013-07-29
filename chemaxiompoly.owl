@@ -1,0 +1,1367 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY daml "http://www.daml.org/2001/03/daml+oil#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY chemdomain "http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#" >
+    <!ENTITY poly "http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#"
+     xml:base="http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:poly="http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:chemdomain="http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#">
+    <owl:Ontology rdf:about="http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl">
+        <dc:rights xml:lang="en">This ontology is licenced under a Creative Commons Attribution 3.0 licence.
+The ontology is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. {@en}</dc:rights>
+        <rdfs:comment>Version 2.0</rdfs:comment>
+        <owl:imports rdf:resource="http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#has_granular_part -->
+
+    <owl:ObjectProperty rdf:about="&chemdomain;has_granular_part"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#mixture -->
+
+    <owl:Class rdf:about="&chemdomain;mixture"/>
+    
+
+
+    <!-- http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#molecular_fragment -->
+
+    <owl:Class rdf:about="&chemdomain;molecular_fragment">
+        <rdfs:label xml:lang="en">Structural component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#molecule -->
+
+    <owl:Class rdf:about="&chemdomain;molecule"/>
+    
+
+
+    <!-- http://purl.org/scimantica/chemaxiom/owl/chemdomain.owl#radical_molecule -->
+
+    <owl:Class rdf:about="&chemdomain;radical_molecule">
+        <rdfs:label xml:lang="en">Free radical</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#alternating_copolymer -->
+
+    <owl:Class rdf:about="&poly;alternating_copolymer">
+        <rdfs:label xml:lang="en">alternating copolymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+        <rdfs:comment>http://goldbook.iupac.org/A00250.html</rdfs:comment>
+        <rdfs:comment>A copolymer consisting of macromolecules comprising two species of monomeric units in alternating sequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#atactic_macromolecule -->
+
+    <owl:Class rdf:about="&poly;atactic_macromolecule">
+        <rdfs:label xml:lang="en">atactic macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;regular_macromolecule"/>
+        <rdfs:comment>A regular macromolecule in which the configurational (base) units are not all identical.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/A00488.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#atactic_polymer -->
+
+    <owl:Class rdf:about="&poly;atactic_polymer">
+        <rdfs:label xml:lang="en">Atactic polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;atactic_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#block -->
+
+    <owl:Class rdf:about="&poly;block">
+        <rdfs:label xml:lang="en">block</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;branch"/>
+        <owl:disjointWith rdf:resource="&poly;branch_point"/>
+        <owl:disjointWith rdf:resource="&poly;chain"/>
+        <owl:disjointWith rdf:resource="&poly;chain_end"/>
+        <owl:disjointWith rdf:resource="&poly;configurational_repeating_unit"/>
+        <owl:disjointWith rdf:resource="&poly;constitutional_unit"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#block_copolymer -->
+
+    <owl:Class rdf:about="&poly;block_copolymer">
+        <rdfs:label xml:lang="en">block copolymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;copolymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;block_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#block_macromolecule -->
+
+    <owl:Class rdf:about="&poly;block_macromolecule">
+        <rdfs:label xml:lang="en">Block macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#block_polymer -->
+
+    <owl:Class rdf:about="&poly;block_polymer">
+        <rdfs:label xml:lang="en">block polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;block_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branch -->
+
+    <owl:Class rdf:about="&poly;branch">
+        <rdfs:label xml:lang="en">branch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;branch_point"/>
+        <owl:disjointWith rdf:resource="&poly;configurational_repeating_unit"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branch_point -->
+
+    <owl:Class rdf:about="&poly;branch_point">
+        <rdfs:label xml:lang="en">branch point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;chain"/>
+        <owl:disjointWith rdf:resource="&poly;configurational_repeating_unit"/>
+        <owl:disjointWith rdf:resource="&poly;constitutional_unit"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branched_chain -->
+
+    <owl:Class rdf:about="&poly;branched_chain">
+        <rdfs:label xml:lang="en">Branched chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;chain"/>
+        <owl:disjointWith rdf:resource="&poly;linear_chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branched_macromolecule -->
+
+    <owl:Class rdf:about="&poly;branched_macromolecule">
+        <rdfs:label xml:lang="en">branched macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branched_main_chain -->
+
+    <owl:Class rdf:about="&poly;branched_main_chain">
+        <rdfs:label xml:lang="en">branched main chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;main_chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branched_polymer -->
+
+    <owl:Class rdf:about="&poly;branched_polymer">
+        <rdfs:label xml:lang="en">branched polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;branched_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#branched_side_chain -->
+
+    <owl:Class rdf:about="&poly;branched_side_chain">
+        <rdfs:label xml:lang="en">Branched side chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;side_chain"/>
+        <owl:disjointWith rdf:resource="&poly;linear_side_chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#brush_macromolecule -->
+
+    <owl:Class rdf:about="&poly;brush_macromolecule">
+        <rdfs:label xml:lang="en">Brush macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <owl:disjointWith rdf:resource="&poly;comb_macromolecule"/>
+        <rdfs:comment>Identical to the comb macromolecule. However, the branch point functionality is greater than three.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#chain -->
+
+    <owl:Class rdf:about="&poly;chain">
+        <rdfs:label xml:lang="en">chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;chain_end"/>
+        <owl:disjointWith rdf:resource="&poly;configurational_repeating_unit"/>
+        <owl:disjointWith rdf:resource="&poly;constitutional_unit"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#chain_end -->
+
+    <owl:Class rdf:about="&poly;chain_end">
+        <rdfs:label xml:lang="en">chain end</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;configurational_repeating_unit"/>
+        <owl:disjointWith rdf:resource="&poly;constitutional_repeating_unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#comb_macromolecule -->
+
+    <owl:Class rdf:about="&poly;comb_macromolecule">
+        <rdfs:label xml:lang="en">Comb macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>A macromolecule comprising of a main chain with multiple trifunctional branch points from each of which a linear side chain emanates.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/C01186.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#comb_polymer -->
+
+    <owl:Class rdf:about="&poly;comb_polymer">
+        <rdfs:label xml:lang="en">comb polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;comb_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#configurational_base_unit -->
+
+    <owl:Class rdf:about="&poly;configurational_base_unit">
+        <rdfs:label xml:lang="en">configurational base unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_repeating_unit"/>
+        <rdfs:comment>A constitutional repeating unit in a regular macromolecule, a regular oligomer molecule, regular block or a regular chain, the configuration of which is defined at least at one site of stereoisomerism in the main chain.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/C01250.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#configurational_repeating_unit -->
+
+    <owl:Class rdf:about="&poly;configurational_repeating_unit">
+        <rdfs:label xml:lang="en">configurational repeating unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;constitutional_unit"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#constitutional_repeating_unit -->
+
+    <owl:Class rdf:about="&poly;constitutional_repeating_unit">
+        <rdfs:label xml:lang="en">constitutional repeating unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_unit"/>
+        <rdfs:comment>The smallest constitutional unit the repetition of which constitutes a regular macromolecule, a regular oligomer molecule, a regular block or a regular chain.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/C01286.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#constitutional_unit -->
+
+    <owl:Class rdf:about="&poly;constitutional_unit">
+        <rdfs:label xml:lang="en">constitutional unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;ionisable_group"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+        <rdfs:comment>A constitutional unit is a larger unit in a molecule that is chemically sensible. For a polymer, for example, the constitutional reapeating unit is one possible sensible constitutional unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#copolymer -->
+
+    <owl:Class rdf:about="&poly;copolymer">
+        <rdfs:label xml:lang="en">Copolymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+        <owl:disjointWith rdf:resource="&poly;homopolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#covalent_network -->
+
+    <owl:Class rdf:about="&poly;covalent_network">
+        <rdfs:label xml:lang="en">covalent network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#difunctional_branch_point -->
+
+    <owl:Class rdf:about="&poly;difunctional_branch_point">
+        <rdfs:label xml:lang="en">difunctional branch point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;branch_point"/>
+        <owl:disjointWith rdf:resource="&poly;hyperfunctional_branch_point"/>
+        <owl:disjointWith rdf:resource="&poly;trifunctional_branch_point"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#double_strand_copolymer -->
+
+    <owl:Class rdf:about="&poly;double_strand_copolymer">
+        <rdfs:label xml:lang="en">double strand copolymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;copolymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;double_strand_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#double_strand_macromolecule -->
+
+    <owl:Class rdf:about="&poly;double_strand_macromolecule">
+        <rdfs:label xml:lang="en">double strand macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/D01851.html</rdfs:comment>
+        <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through three or four atoms, two on one side and either one or two on the other side of each constitutional unit.</rdfs:comment>
+        <rdfs:comment>To put it in a different way: double stranded macromolecules consist of an uninterrupted sequence of rings with adjacent rings having one atom in common (a spiro macromolecule) or two or more atoms in common (a ladder macromolecule).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#double_strand_polymer -->
+
+    <owl:Class rdf:about="&poly;double_strand_polymer">
+        <rdfs:label xml:lang="en">double strand polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;double_strand_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#endgroup -->
+
+    <owl:Class rdf:about="&poly;endgroup">
+        <rdfs:label xml:lang="en">endgroup</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#functional_endgroup -->
+
+    <owl:Class rdf:about="&poly;functional_endgroup">
+        <rdfs:label xml:lang="en">functional endgroup</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;endgroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#functional_head_group -->
+
+    <owl:Class rdf:about="&poly;functional_head_group">
+        <rdfs:label xml:lang="en">functional head group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;functional_endgroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#functional_tail_group -->
+
+    <owl:Class rdf:about="&poly;functional_tail_group">
+        <rdfs:label xml:lang="en">functional tail group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;functional_endgroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#graft -->
+
+    <owl:Class rdf:about="&poly;graft">
+        <rdfs:label xml:lang="en">Graft</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;chain"/>
+        <owl:disjointWith rdf:resource="&poly;main_chain"/>
+        <rdfs:comment>A graft is a polymer chain or a molecule which is covalently attached to the main chain of the polymer and which is chemically different from the main chain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#graft_copolymer -->
+
+    <owl:Class rdf:about="&poly;graft_copolymer">
+        <rdfs:label xml:lang="en">graft copolymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;copolymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;graft_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#graft_macromolecule -->
+
+    <owl:Class rdf:about="&poly;graft_macromolecule">
+        <rdfs:label xml:lang="en">graft macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>A macromolecule with one or more species of block connected to the main chain as side chains, these side chains having constitutional or configurational features that differ from those in the main chain.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/G02678.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#graft_polymer -->
+
+    <owl:Class rdf:about="&poly;graft_polymer">
+        <rdfs:label xml:lang="en">graft polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;graft_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#head_group -->
+
+    <owl:Class rdf:about="&poly;head_group">
+        <rdfs:label xml:lang="en">head group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;endgroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#homopolymer -->
+
+    <owl:Class rdf:about="&poly;homopolymer">
+        <rdfs:label xml:lang="en">Homo polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#hyperfunctional_branch_point -->
+
+    <owl:Class rdf:about="&poly;hyperfunctional_branch_point">
+        <rdfs:label xml:lang="en">hyperfunctional branch point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;branch_point"/>
+        <owl:disjointWith rdf:resource="&poly;trifunctional_branch_point"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#interpenetrating_polymer_network -->
+
+    <owl:Class rdf:about="&poly;interpenetrating_polymer_network">
+        <rdfs:label xml:lang="en">Interpenetrating polymer network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;network_polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#ionic_constitutional_unit -->
+
+    <owl:Class rdf:about="&poly;ionic_constitutional_unit">
+        <rdfs:label xml:lang="en">Ionic constitutional unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#ionisable_constitutional_unit -->
+
+    <owl:Class rdf:about="&poly;ionisable_constitutional_unit">
+        <rdfs:label xml:lang="en">ionisable constitutional unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#ionisable_group -->
+
+    <owl:Class rdf:about="&poly;ionisable_group">
+        <rdfs:label xml:lang="en">Ionisable group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+        <owl:disjointWith rdf:resource="&poly;site_of_Isomerism"/>
+        <rdfs:comment>an ionisable group is a chemical group which is formally neutral, but which can easily be ionised (e.g. through proton abstraction or protonation). The result of such a process is an ionic group.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#ionomer_macromolecule -->
+
+    <owl:Class rdf:about="&poly;ionomer_macromolecule">
+        <rdfs:label xml:lang="en">ionomer macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#irregular_macromolecule -->
+
+    <owl:Class rdf:about="&poly;irregular_macromolecule">
+        <rdfs:label xml:lang="en">irregular macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>NA note: biological examples of irregular macromolecules are proteins or nucleic acids</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/I03256.html</rdfs:comment>
+        <rdfs:comment>A macromolecule the structure of which essentially comprises the repetition of more than one type of constitutional unit or a macromolecule the structure of which comprises constitutional units not all connected identically with respect to directional sense.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#irregular_polymer -->
+
+    <owl:Class rdf:about="&poly;irregular_polymer">
+        <rdfs:label xml:lang="en">Irregular polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;irregular_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#isotactic_macromolecule -->
+
+    <owl:Class rdf:about="&poly;isotactic_macromolecule">
+        <rdfs:label xml:lang="en">Isotactic macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;tactic_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#isotactic_polymer -->
+
+    <owl:Class rdf:about="&poly;isotactic_polymer">
+        <rdfs:label xml:lang="en">isotactic polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;tactic_polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;isotactic_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;tactic_polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#ladder_macromolecule -->
+
+    <owl:Class rdf:about="&poly;ladder_macromolecule">
+        <rdfs:label xml:lang="en">ladder macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;double_strand_macromolecule"/>
+        <owl:disjointWith rdf:resource="&poly;spiro_macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/L03441.html</rdfs:comment>
+        <rdfs:comment>A double-strand macromolecule consisting of an uninterrupted sequence of rings, with adjacent rings having two or more atoms in common. Alternatively, a ladder macromolecule is a double-strand macromolecule with constitutional units joined to each other through four atoms, two on one side and two on the other side of each constitutional unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#linear_chain -->
+
+    <owl:Class rdf:about="&poly;linear_chain">
+        <rdfs:label xml:lang="en">Linear chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#linear_copolymer -->
+
+    <owl:Class rdf:about="&poly;linear_copolymer">
+        <rdfs:label xml:lang="en">linear copolymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;copolymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;linear_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#linear_macromolecule -->
+
+    <owl:Class rdf:about="&poly;linear_macromolecule">
+        <rdfs:label xml:lang="en">linear macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/L03554.html</rdfs:comment>
+        <rdfs:comment>A macromolecule the structure of which essentially comprises the multiple repetition in linear sequence of units derived, actually or conceptually, from molecules of low relative molecular mass.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#linear_polymer -->
+
+    <owl:Class rdf:about="&poly;linear_polymer">
+        <rdfs:label xml:lang="en">linear polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;linear_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#linear_side_chain -->
+
+    <owl:Class rdf:about="&poly;linear_side_chain">
+        <rdfs:label xml:lang="en">linear side chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;side_chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#living_polymer -->
+
+    <owl:Class rdf:about="&poly;living_polymer">
+        <rdfs:label xml:lang="en">living polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#macrocycle -->
+
+    <owl:Class rdf:about="&poly;macrocycle">
+        <rdfs:label xml:lang="en">macrocycle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/M03662.html</rdfs:comment>
+        <rdfs:comment>A cyclic macromolecule or a macromolecular cyclic portion of a macromolecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#macroinitiator -->
+
+    <owl:Class rdf:about="&poly;macroinitiator">
+        <rdfs:label xml:lang="en">macroinitiator</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>An initiator is a molecule, which triggers (initiates) a chemical reaction. Usually, these carry either cationic or anionic charges or radicals. A macroinitiator is a macromolecular initiator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#macromolecule -->
+
+    <owl:Class rdf:about="&poly;macromolecule">
+        <rdfs:label xml:lang="en">macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecule"/>
+        <rdfs:comment>A molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/M03667.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#macromonomer_polymer -->
+
+    <owl:Class rdf:about="&poly;macromonomer_polymer">
+        <rdfs:label xml:lang="en">macromonomer polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#macroradical_molecule -->
+
+    <owl:Class rdf:about="&poly;macroradical_molecule">
+        <rdfs:label xml:lang="en">macroradical molecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;radical_molecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#main_chain -->
+
+    <owl:Class rdf:about="&poly;main_chain">
+        <rdfs:label xml:lang="en">main chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;chain"/>
+        <owl:disjointWith rdf:resource="&poly;side_chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#micro_network -->
+
+    <owl:Class rdf:about="&poly;micro_network">
+        <rdfs:label xml:lang="en">micro network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;network"/>
+        <rdfs:comment>http://goldbook.iupac.org/M03904.html</rdfs:comment>
+        <rdfs:comment>A highly ramified macromolecule that contains cyclic structures and is of colloidal dimensions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#monodisperse_polymer -->
+
+    <owl:Class rdf:about="&poly;monodisperse_polymer">
+        <rdfs:label xml:lang="en">Monodisperse polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+        <rdfs:comment>A polymer composed of molecules uniform with respect to relative molecular mass and constitution.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/U06558.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#multi_strand_macromolecule -->
+
+    <owl:Class rdf:about="&poly;multi_strand_macromolecule">
+        <rdfs:label xml:lang="en">multi-strand macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/M04067.html</rdfs:comment>
+        <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through more than four atoms, more than two on at least one side of each constitutional unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#network -->
+
+    <owl:Class rdf:about="&poly;network">
+        <rdfs:label xml:lang="en">network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/N04112.html</rdfs:comment>
+        <rdfs:comment>A highly ramified macromolecule in which essentially each constitutional unit is connected to each other constitutional unit  and to the macroscopic phase boundary by many permanent paths through the macromolecule, the number of such paths increasing with the average number of intervening bonds; the paths must on the average be co-extensive with the macromolecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#network_polymer -->
+
+    <owl:Class rdf:about="&poly;network_polymer">
+        <rdfs:label xml:lang="en">network polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#oligomer -->
+
+    <owl:Class rdf:about="&poly;oligomer">
+        <rdfs:label xml:lang="en">Oligomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;mixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#oligomer_molecule -->
+
+    <owl:Class rdf:about="&poly;oligomer_molecule">
+        <rdfs:label xml:lang="en">oligomer molecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecule"/>
+        <rdfs:comment>A molecule of intermediate relative molecular mass, the structure of which essentially comprises a small plurality of units derived, actually or conceptually, from molecules of lower relative molecular mass.</rdfs:comment>
+        <rdfs:comment>http://goldbook.iupac.org/O04286.html</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#periodic_copolymer -->
+
+    <owl:Class rdf:about="&poly;periodic_copolymer">
+        <rdfs:label xml:lang="en">periodic copolymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#physical_network -->
+
+    <owl:Class rdf:about="&poly;physical_network">
+        <rdfs:label xml:lang="en">physical network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#polydisperse_polymer -->
+
+    <owl:Class rdf:about="&poly;polydisperse_polymer">
+        <rdfs:label xml:lang="en">polydisperse polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+        <rdfs:comment>http://goldbook.iupac.org/N04206.html</rdfs:comment>
+        <rdfs:comment>A polymer comprising molecules non-uniform with respect to relative molecular mass or constitution or both.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#polyelectrolyte_polymer -->
+
+    <owl:Class rdf:about="&poly;polyelectrolyte_polymer">
+        <rdfs:label xml:lang="en">polyelectrolyte polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;ionomer_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+        <rdfs:comment>http://goldbook.iupac.org/P04728.html</rdfs:comment>
+        <rdfs:comment>A macromolecular substance which, on dissolving in water or another ionizing solvent, dissociates to give polyions (polycations or polyanions) — multiply charged ions — together with an equivalent amount of ions of small charge and opposite sign. Polyelectrolytes dissociating into polycations and polyanions, with no ions of small charge, are also conceivable. A polyelectrolyte can be a polyacid, a polybase, a polysalt or a polyampholyte.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#polymer -->
+
+    <owl:Class rdf:about="&poly;polymer">
+        <rdfs:label xml:lang="en">Polymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;mixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#polymer_blend -->
+
+    <owl:Class rdf:about="&poly;polymer_blend">
+        <rdfs:label xml:lang="en">Polymer blend</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;mixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#polymer_polymer_complex -->
+
+    <owl:Class rdf:about="&poly;polymer_polymer_complex">
+        <rdfs:label xml:lang="en">polymer-polymer complex</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#pre_polymer_molecule -->
+
+    <owl:Class rdf:about="&poly;pre_polymer_molecule">
+        <rdfs:label xml:lang="en">prepolymer molecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#pseudo_co_oligomer -->
+
+    <owl:Class rdf:about="&poly;pseudo_co_oligomer">
+        <rdfs:label xml:lang="en">Co oligomer</rdfs:label>
+        <rdfs:label xml:lang="en">Pseudo co oligomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;oligomer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#random_copolymer -->
+
+    <owl:Class rdf:about="&poly;random_copolymer">
+        <rdfs:label xml:lang="en">random copolymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#reactive_group -->
+
+    <owl:Class rdf:about="&poly;reactive_group">
+        <rdfs:label xml:lang="en">reactive group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;constitutional_unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#regular_macromolecule -->
+
+    <owl:Class rdf:about="&poly;regular_macromolecule">
+        <rdfs:label xml:lang="en">regular macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/R05247.html</rdfs:comment>
+        <rdfs:comment>A macromolecule the structure of which essentially comprises the repetition of a single constitutional unit with all units connected identically with respect to directional sense.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#regular_polymer -->
+
+    <owl:Class rdf:about="&poly;regular_polymer">
+        <rdfs:label xml:lang="en">Regular polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;regular_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#regular_star_macromolecule -->
+
+    <owl:Class rdf:about="&poly;regular_star_macromolecule">
+        <rdfs:label xml:lang="en">regular star macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;star_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#semi_interpenetrating_polymer_network -->
+
+    <owl:Class rdf:about="&poly;semi_interpenetrating_polymer_network">
+        <rdfs:label xml:lang="en">Semiinterpenetrating polymer network</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;network_polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#side_chain -->
+
+    <owl:Class rdf:about="&poly;side_chain">
+        <rdfs:label xml:lang="en">side chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;chain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#single_strand_macromolecule -->
+
+    <owl:Class rdf:about="&poly;single_strand_macromolecule">
+        <rdfs:label xml:lang="en">single strand macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/S05693.html</rdfs:comment>
+        <rdfs:comment>A macromolecule that comprises constitutional units connected in such a way that adjacent constitutional units are joined to each other through two atoms, one on each constitutional unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#single_strand_polymer -->
+
+    <owl:Class rdf:about="&poly;single_strand_polymer">
+        <rdfs:label xml:lang="en">single strand polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;single_strand_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#site_of_Isomerism -->
+
+    <owl:Class rdf:about="&poly;site_of_Isomerism">
+        <rdfs:label xml:lang="en">site of isomerism</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecular_fragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#site_of_stereoisomerism -->
+
+    <owl:Class rdf:about="&poly;site_of_stereoisomerism">
+        <rdfs:label xml:lang="en">Site of stereoisomerism</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;site_of_Isomerism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#small_molecule -->
+
+    <owl:Class rdf:about="&poly;small_molecule">
+        <rdfs:label xml:lang="en">small molecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&chemdomain;molecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#spiro_macromolecule -->
+
+    <owl:Class rdf:about="&poly;spiro_macromolecule">
+        <rdfs:label xml:lang="en">spiro macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;double_strand_macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/S05882.html</rdfs:comment>
+        <rdfs:comment>double-strand macromolecule consisting of an uninterrupted sequence of rings, with adjacent rings having only one atom in common. Alternatively, a spiro macromolecule is a double-strand macromolecule with adjacent constitutional units joined to each other through three atoms, two on one side and one on the other side of each constitutional unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#star_macromolecule -->
+
+    <owl:Class rdf:about="&poly;star_macromolecule">
+        <rdfs:label xml:lang="en">star macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/S05935.html</rdfs:comment>
+        <rdfs:comment>A macromolecule containing a single branch point from which linear chains (arms) emanate.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#star_polymer -->
+
+    <owl:Class rdf:about="&poly;star_polymer">
+        <rdfs:label xml:lang="en">star polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;star_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#statistical_copolymer -->
+
+    <owl:Class rdf:about="&poly;statistical_copolymer">
+        <rdfs:label xml:lang="en">statistical copolymer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;copolymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#stereoblock -->
+
+    <owl:Class rdf:about="&poly;stereoblock">
+        <rdfs:label xml:lang="en">stereoblock</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#stereoblock_macromolecule -->
+
+    <owl:Class rdf:about="&poly;stereoblock_macromolecule">
+        <rdfs:label xml:lang="en">stereoblock macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;block_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#stereoregular_macromolecule -->
+
+    <owl:Class rdf:about="&poly;stereoregular_macromolecule">
+        <rdfs:label xml:lang="en">stereoregular macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;regular_macromolecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/S05986.html</rdfs:comment>
+        <rdfs:comment>A regular macromolecule essentially comprising only one species of stereorepeating unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#stereoregular_star_macromolecule -->
+
+    <owl:Class rdf:about="&poly;stereoregular_star_macromolecule">
+        <rdfs:label xml:lang="en">stereoregular star macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;star_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#syndiotactic_macromolecule -->
+
+    <owl:Class rdf:about="&poly;syndiotactic_macromolecule">
+        <rdfs:label xml:lang="en">syndiotactic macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;tactic_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#syndiotactic_polymer -->
+
+    <owl:Class rdf:about="&poly;syndiotactic_polymer">
+        <rdfs:label xml:lang="en">syndiotactic polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;tactic_polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;syndiotactic_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;tactic_polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#tactic_macromolecule -->
+
+    <owl:Class rdf:about="&poly;tactic_macromolecule">
+        <rdfs:label xml:lang="en">tactic macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;regular_macromolecule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#tactic_polymer -->
+
+    <owl:Class rdf:about="&poly;tactic_polymer">
+        <rdfs:label xml:lang="en">tactic polymer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&poly;polymer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&chemdomain;has_granular_part"/>
+                        <owl:someValuesFrom rdf:resource="&poly;tactic_macromolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&poly;polymer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#tail_group -->
+
+    <owl:Class rdf:about="&poly;tail_group">
+        <rdfs:label xml:lang="en">tail group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;endgroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#telechelic_macromolecule -->
+
+    <owl:Class rdf:about="&poly;telechelic_macromolecule">
+        <rdfs:label xml:lang="en">telechelic macromolecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;pre_polymer_molecule"/>
+        <rdfs:comment>http://goldbook.iupac.org/P04818.html</rdfs:comment>
+        <rdfs:comment>A pre-polymer molecule capable of entering into further polymerization through reactive end-groups, often deliberately introduced, is known as a telechelic molecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.purl.org/scimantica/chemaxiom/owl/chemaxiompoly.owl#trifunctional_branch_point -->
+
+    <owl:Class rdf:about="&poly;trifunctional_branch_point">
+        <rdfs:label xml:lang="en">trifunctional branch point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&poly;branch_point"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
